@@ -21,3 +21,14 @@ for i in range(len(wordsearch)):
             for l in range(-1, 2):
                 count += search(i, j, k, l)
 print(count)
+
+# part 2
+SEARCH = "MAS"
+count = 0
+for i in range(len(wordsearch) - 2):
+    for j in range(len(wordsearch[0]) - 3):
+        s1 = "".join([wordsearch[i][j], wordsearch[i+1][j+1], wordsearch[i+2][j+2]])
+        s2 = "".join([wordsearch[i+2][j], wordsearch[i+1][j+1], wordsearch[i][j+2]])
+        if (s1 == SEARCH or s1 == SEARCH[::-1]) and (s2 == SEARCH or s2 == SEARCH[::-1]):
+            count += 1
+print(count)
